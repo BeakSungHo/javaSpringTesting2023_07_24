@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <table border="1">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회수</th>
+        <th>추천수</th>
+        <tr th:each="board : ${boardList}">
+            <th th:text="${board.id}"></th>
+            <th><a th:href="@{|/Board/detail/${board.id}|}" th:text="${board.subject}"></a></th>
+            <th th:text="${board.nickname}"></th>
+            <th th:text="${#temporals.format(board.createDate, 'yyyy-MM-dd HH:mm')}"></th>
+            <th th:text="${board.views}"></th>
+            <th th:text="${board.vote}"></th>
+        </tr>
+    </table>
+<!--    "@{|/answer/create/${question.id}|}"-->
+    <form th:action="@{/Board/create}">
+        <input type="submit" value="질문등록">
+    </form>
+
+</body>
+</html>

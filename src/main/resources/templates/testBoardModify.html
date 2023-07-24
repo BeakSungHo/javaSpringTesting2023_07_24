@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h5 >질문등록</h5>
+    <form th:action="@{|/Board/modify/${board.id}|}" method="post">
+        <div class="mb-3">
+            <label for="subject" >제목</label>
+            <input type="text" name="subject" id="subject" th:value="${board.subject}" >
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">내용</label>
+            <textarea name="content" id="content" rows="10" th:text="${board.content}"></textarea>
+        </div>
+        <input type="submit" value="저장하기" >
+    </form>
+
+</div>
+</body>
+</html>

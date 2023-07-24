@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <body>
+  <table>
+    <th>제목 : </th>
+    <th><h1 th:text="${board.subject}"></h1></th>
+    <tr>
+      <th>내용 : </th>
+      <th>  <h3 th:text="${board.content}"></h3></th>
+    </tr>
+    <tr>
+      <th>글쓴이 : </th>
+      <th>  <h3 th:text="${board.nickname}"></h3></th>
+    </tr>
+    <tr>
+      <th>작성일 : </th>
+      <th>  <h3 th:text="${#temporals.format(board.createDate, 'yyyy-MM-dd HH:mm')}"></h3></th>
+    </tr>
+    <tr>
+      <th>조회수 : </th>
+      <th>  <h3 th:text="${board.views}"></h3></th>
+    </tr>
+  </table>
+  <form th:action="@{|/Board/modify/${board.id}|}">
+    <input type="submit" value="수정">
+  </form>
+
+  <form th:action="@{|/Board/delete/${board.id}|}" method="post" >
+    <input type="submit" value="삭제">
+  </form>
+  </body>
+</table>
+</body>
+</html>
